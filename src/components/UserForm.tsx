@@ -14,6 +14,7 @@ export const employeeInitValues = {
 
 const UserForm = () => {
   const [values, setValues] = useState(employeeInitValues);
+  const [sentMail, setSentMail] = useState('');
 
   const handleChange = name => event => {
     setValues({ ...values, [name]: event.target.value });
@@ -23,34 +24,36 @@ const UserForm = () => {
     window.emailjs
       .send('gmail', templateId, variables)
       .then(res => {
+        setSentMail('Email successfully sent!');
         console.log('Email successfully sent!');
       })
-      .catch(err =>
+      .catch(err => {
+        setSentMail('Sent mail failed');
         console.error(
           'Oh well, you failed. Here some thoughts on the error that occured:',
           err
-        )
-      );
+        );
+      });
   };
 
-  const emptyValidation = (values) => {
+  const emptyValidation = values => {
     const objValues = Object.values(values);
-    return objValues.filter(value => value === "").length > 0
-  }
+    return objValues.filter(value => value === '').length > 0;
+  };
 
   const handleSubmitForm = () => {
-    if(emptyValidation(values)) {
-      alert('all fields should be filled')
-      return null
+    if (emptyValidation(values)) {
+      alert('all fields should be filled');
+      return null;
     }
     const templateId = 'template_fRyI4uWo';
     sendFeedback(templateId, {
       message_html: JSON.stringify(values),
       from_name: 'userFormTest',
-      to_name: 'rcnavarrop@gmail.com',
+      to_name: 'rcnavarrop@gmail.com'
     });
   };
-  
+
   console.log(emptyValidation(values));
   return (
     <UserFormBox>
@@ -126,6 +129,7 @@ const UserForm = () => {
       <Button onClick={handleSubmitForm} color='primary' variant='contained'>
         Submit
       </Button>
+      {sentMail}
     </UserFormBox>
   );
 };
