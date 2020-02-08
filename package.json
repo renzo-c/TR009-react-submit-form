@@ -1,0 +1,22 @@
+{
+  "name": "003-react-redux-blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Renzo Navarro",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel index.html"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.9.1",
+    "emailjs-com": "^2.4.1",
+    "parcel-bundler": "^1.12.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "redux": "^4.0.5",
+    "styled-components": "^5.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^3.7.5"
+  }
+}
