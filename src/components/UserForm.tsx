@@ -54,7 +54,6 @@ const UserForm = () => {
     });
   };
 
-  console.log(emptyValidation(values));
   return (
     <UserFormBox>
       <TextField
