@@ -59,7 +59,7 @@ const UserForm = () => {
       <TextField
         id='firstName'
         label='First Name'
-        placeholder='Name(s)'
+        placeholder='Name(sx)'
         value={values.firstName}
         onChange={handleChange('firstName')}
         fullWidth
@@ -72,7 +72,7 @@ const UserForm = () => {
       <TextField
         id='lastName'
         label='Last Name'
-        placeholder='Last name(s)'
+        placeholder='Last name(sx)'
         value={values.lastName}
         onChange={handleChange('lastName')}
         fullWidth
